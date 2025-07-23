@@ -9,8 +9,8 @@ pacman -Syu --noconfirm    \
 	base-devel         \
 	curl               \
 	git                \
-  gtk4               \
-  libadwaita         \
+	gtk4               \
+	libadwaita         \
 	libxtst            \
 	pipewire-audio     \
 	pulseaudio         \
