@@ -15,6 +15,7 @@ git clone https://github.com/Caliel666/lsfg-vk-ui.git ./lsfg-ui && (
 )
 
 VERSION=$(awk -F'=|"' '/^version/{print $3}' ./lsfg-ui/Cargo.toml)
+echo "$VERSION" > ~/version
 
 # deploy dependencies
 mkdir -p ./AppDir/shared/bin
@@ -52,6 +53,9 @@ echo "Generating AppImage..."
 	-i ./AppDir -o ./lsfg-ui-"$VERSION"-anylinux-"$ARCH".AppImage
 
 echo "Generating zsync file..."
-zsyncmake *.AppImage -u *.AppImage
+zsyncmake ./*.AppImage -u ./*.AppImage
+
+mkdir -p ./dist
+mv -v ./*.AppImage* ./dist
 
 echo "All Done!"
