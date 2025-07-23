@@ -36,10 +36,16 @@ LIBXML_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/downloa
 MESA_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/mesa-mini-$PKG_TYPE"
 LLVM_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/llvm-libs-nano-$PKG_TYPE"
 
+# We need to build here because the rust compiler hates the smaller llvm
+git clone https://github.com/Caliel666/lsfg-vk-ui.git ./lsfg-ui && (
+	cd ./lsfg-ui
+	cargo build --release
+)
+
 echo "Installing debloated pckages..."
 echo "---------------------------------------------------------------"
 wget --retry-connrefused --tries=30 "$LIBXML_URL" -O  ./libxml2.pkg.tar.zst
-#wget --retry-connrefused --tries=30 "$LLVM_URL"   -O  ./llvm-libs.pkg.tar.zst
+wget --retry-connrefused --tries=30 "$LLVM_URL"   -O  ./llvm-libs.pkg.tar.zst
 wget --retry-connrefused --tries=30 "$MESA_URL"   -O  ./mesa.pkg.tar.zst
 
 pacman -U --noconfirm ./*.pkg.tar.zst
