@@ -30,7 +30,6 @@ mv -v ./lsfg-ui/target/release/lsfg-vk-ui   ./AppDir/shared/bin && (
 )
 
 # turn AppDIr into appimage with uruntime
-cd ..
 wget --retry-connrefused --tries=30 "$URUNTIME"      -O  ./uruntime
 wget --retry-connrefused --tries=30 "$URUNTIME_LITE" -O  ./uruntime-lite
 chmod +x ./uruntime*
