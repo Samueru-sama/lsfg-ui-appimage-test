@@ -39,7 +39,7 @@ LLVM_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/
 echo "Installing debloated pckages..."
 echo "---------------------------------------------------------------"
 wget --retry-connrefused --tries=30 "$LIBXML_URL" -O  ./libxml2.pkg.tar.zst
-wget --retry-connrefused --tries=30 "$LLVM_URL"   -O  ./llvm-libs.pkg.tar.zst
+#wget --retry-connrefused --tries=30 "$LLVM_URL"   -O  ./llvm-libs.pkg.tar.zst
 wget --retry-connrefused --tries=30 "$MESA_URL"   -O  ./mesa.pkg.tar.zst
 
 pacman -U --noconfirm ./*.pkg.tar.zst
