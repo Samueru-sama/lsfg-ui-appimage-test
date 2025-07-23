@@ -19,6 +19,7 @@ echo "$VERSION" > ~/version
 
 # deploy dependencies
 mkdir -p ./AppDir/shared/bin
+cp -v ./lsfg-ui/resources/*.desktop         ./AppDir
 cp -v ./lsfg-ui/resources/icons/lsfg-vk.png ./AppDir/lsfg-ui.png
 cp -v ./lsfg-ui/resources/icons/lsfg-vk.png ./AppDir/.DirIcon
 mv -v ./lsfg-ui/target/release/lsfg-vk-ui   ./AppDir/shared/bin && (
