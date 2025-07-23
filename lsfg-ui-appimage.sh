@@ -8,12 +8,6 @@ URUNTIME_LITE="https://github.com/VHSgunzo/uruntime/releases/latest/download/uru
 UPINFO="gh-releases-zsync|$(echo $GITHUB_REPOSITORY | tr '/' '|')|latest|*$ARCH.AppImage.zsync"
 SHARUN="https://github.com/VHSgunzo/sharun/releases/latest/download/sharun-$ARCH-aio"
 
-# build the thing
-git clone https://github.com/Caliel666/lsfg-vk-ui.git ./lsfg-ui && (
-	cd ./lsfg-ui
-	cargo build --release
-)
-
 VERSION=$(awk -F'=|"' '/^version/{print $3}' ./lsfg-ui/Cargo.toml)
 echo "$VERSION" > ~/version
 
