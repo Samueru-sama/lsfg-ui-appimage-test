@@ -7,6 +7,7 @@ echo "Installing build dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm    \
 	base-devel         \
+	cargo              \
 	curl               \
 	git                \
 	gtk4               \
