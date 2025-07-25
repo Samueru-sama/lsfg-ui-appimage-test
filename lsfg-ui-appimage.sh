@@ -11,6 +11,8 @@ SHARUN="https://github.com/VHSgunzo/sharun/releases/latest/download/sharun-$ARCH
 VERSION=$(awk -F'=|"' '/^version/{print $3}' ./lsfg-ui/Cargo.toml)
 echo "$VERSION" > ~/version
 
+export GSK_RENDERER=cairo
+
 # deploy dependencies
 mkdir -p ./AppDir/shared/bin
 cp -v ./lsfg-ui/resources/*.desktop         ./AppDir
@@ -27,6 +29,7 @@ mv -v ./lsfg-ui/target/release/lsfg-vk-ui   ./AppDir/shared/bin && (
 	rm -f ./sharun-aio
 	ln ./sharun ./AppRun
 	./sharun -g
+	echo 'GSK_RENDERER=cairo' >> ./.env
 )
 
 # turn AppDIr into appimage with uruntime
